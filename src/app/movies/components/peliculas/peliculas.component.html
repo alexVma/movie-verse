@@ -1,5 +1,4 @@
-<p>peliculas works!</p>
-
+<!--
 <div *ngFor="let pelicula of peliculas">
     <h2>{{ pelicula.title }}</h2>
     <h4>{{ pelicula.overview }}</h4>
@@ -8,4 +7,14 @@
 
     <button (click)="verDetalle(pelicula.id)">Ver detalle</button>
     <hr>
+</div>-->
+<div class="pelicula-list">
+    <div class="pelicula" *ngFor="let pelicula of peliculas">
+        <h2 class="pelicula-title">{{pelicula.title}}</h2>
+        <img height="300" class="pelicula-poster" [src]="'https://image.tmdb.org/t/p/w500/'+pelicula.poster_path"  alt="{{pelicula.title}} Poster">
+        <p class="pelicula-overview">{{pelicula.overview}}</p>
+        <p class="pelicula-rating">Porcentaje de aprobación: {{pelicula.vote_average}}</p>
+
+        <button (click)="verDetalle(pelicula.id)">Ver Detalle</button>
+    </div>
 </div>
