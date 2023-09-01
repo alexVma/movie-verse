@@ -1,0 +1,31 @@
+<div class="container my-5">
+    <div class="d-flex flex-column gap-4">
+        <mdb-form-control>
+            <input [formControl]="nombreField" mdbInput mdbValidate type="text" id="nombre" class="form-control" />
+            <label mdbLabel class="form-label" for="nombre">Nombre</label>
+            <mdb-error *ngIf="nombreField.invalid && (nombreField.dirty || nombreField.touched)"></mdb-error>
+
+            <mdb-error *ngIf="nombreField.hasError('solo_letras')">Solo se permiten letras en este campo.</mdb-error>
+
+
+            <mdb-success *ngIf="nombreField.valid && (nombreField.dirty || nombreField.touched)"></mdb-success>
+        </mdb-form-control>
+        <mdb-form-control>
+            <input [formControl]="apellidoField" mdbInput mdbValidate type="text" id="apellido" class="form-control" />
+            <label mdbLabel class="form-label" for="apellido">Apellido</label>
+            <mdb-error *ngIf="apellidoField.invalid && (apellidoField.dirty || apellidoField.touched)"></mdb-error>
+            <mdb-success *ngIf="apellidoField.valid && (apellidoField.dirty || apellidoField.touched)"></mdb-success>
+        </mdb-form-control>
+
+        <mdb-form-control>
+            <input [formControl]="edadField" mdbInput mdbValidate step="1" type="number" id="edad"
+                class="form-control" />
+            <label mdbLabel class="form-label" for="edad">Edad</label>
+            <mdb-error *ngIf="edadField.invalid && (edadField.dirty || edadField.touched)"></mdb-error>
+            <mdb-error *ngIf="edadField.hasError('min')">La edad minima es 18</mdb-error>
+            <mdb-error *ngIf="edadField.hasError('entero')">Solo se permiten enteros.</mdb-error>
+            <mdb-success *ngIf="edadField.valid && (edadField.dirty || edadField.touched)"></mdb-success>
+        </mdb-form-control>
+        <button class="btn btn-primary" (click)="cargarDatos()">Cargar datos</button>
+    </div>
+</div>

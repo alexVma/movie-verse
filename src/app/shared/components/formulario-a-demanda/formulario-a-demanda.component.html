@@ -1,0 +1,17 @@
+<div class="container my-5">
+    <form [formGroup]="correoForm">
+        <div formArrayName="correos">
+            <div *ngFor="let correo of correos.controls; let i = index" [formGroupName]="i">
+                <div class="d-flex gap-1 my-2">
+                    <mdb-form-control>
+                        <input mdbValidate mdbInput class="form-control" type="email" formControlName="email">
+                        <label mdbLabel class="form-label">Correo electrónico</label>
+                    </mdb-form-control>
+                    <button class="btn btn-info" type="button" (click)="eliminarCorreo(i)">Eliminar</button>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary mt-2" type="button" (click)="agregarCorreo()">Agregar Correo</button>
+    </form>
+    <button class="btn btn-primary mt-2" type="button" (click)="imprimirCorreos()">Ver correos</button>
+</div>

@@ -1,0 +1,73 @@
+<div class="container my-5">
+    <form [formGroup]="peliculaForm" class="d-flex flex-column gap-4">
+        <mdb-form-control>
+            <input formControlName="titulo" mdbInput mdbValidate type="text" id="titulo" class="form-control" />
+            <label mdbLabel class="form-label" for="titulo">Título</label>
+            <mdb-error *ngIf="tituloField?.invalid && (tituloField?.dirty || tituloField?.touched)"></mdb-error>
+            <mdb-success *ngIf="tituloField?.valid && (tituloField?.dirty || tituloField?.touched)"></mdb-success>
+        </mdb-form-control>
+        <mdb-form-control>
+            <input formControlName="precio" mdbInput mdbValidate type="number" id="precio" class="form-control" />
+            <label mdbLabel class="form-label" for="precio">Precio</label>
+            <mdb-error *ngIf="precioField?.invalid && (precioField?.dirty || precioField?.touched)"></mdb-error>
+            <mdb-success *ngIf="precioField?.valid && (precioField?.dirty || precioField?.touched)"></mdb-success>
+        </mdb-form-control>
+
+        <mdb-form-control>
+            <input formControlName="descripcion" mdbInput mdbValidate type="text" id="descripcion"
+                class="form-control" />
+            <label mdbLabel class="form-label" for="descripcion">Descripción</label>
+            <mdb-error
+                *ngIf="descripcionField?.invalid && (descripcionField?.dirty || descripcionField?.touched)"></mdb-error>
+            <mdb-success
+                *ngIf="descripcionField?.valid && (descripcionField?.dirty || descripcionField?.touched)"></mdb-success>
+        </mdb-form-control>
+
+        <mdb-form-control>
+            <input formControlName="imagenes" mdbInput mdbValidate type="text" id="imagenes" class="form-control" />
+            <label mdbLabel class="form-label" for="imagenes">Imágenes</label>
+            <mdb-error *ngIf="imagenesField?.invalid && (imagenesField?.dirty || imagenesField?.touched)"></mdb-error>
+            <mdb-success *ngIf="imagenesField?.valid && (imagenesField?.dirty || imagenesField?.touched)"></mdb-success>
+        </mdb-form-control>
+
+        <button *ngIf="!estaActualizando" [disabled]="peliculaForm.invalid" class="btn btn-primary" (click)="onGuardarPelicula()">
+            Guardar Película
+        </button>
+        <button *ngIf="estaActualizando" [disabled]="peliculaForm.invalid" class="btn btn-primary" (click)="onConfirmarActualizar()">
+            Actualizar Pelicula
+        </button>
+
+        <span *ngIf="peliculaForm?.invalid" class="text-muted text-center">* Llena todos los campos para guardar la
+            película *</span>
+
+    </form>
+
+    <hr>
+
+    <div *ngIf="peliculasCreadas && peliculasCreadas.length > 0">
+
+        <h2>Listado de Películas</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4" *ngFor="let pelicula of peliculasCreadas">
+                <div class="card">
+                    <img class="card-img-top" [src]="pelicula.images[0]" alt="Imagen de la película">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ pelicula.title }}</h5>
+                        <p class="card-text">{{ pelicula.description }}</p>
+                        <p class="card-text"><strong>Precio:</strong> {{ pelicula.price | currency }}</p>
+                        <p class="card-text"><strong>Categoría:</strong> {{ pelicula.category.name }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-info me-2" (click)="onActualizarPelicula(pelicula)">
+                            Actualizar
+                        </button>
+                        <button class="btn btn-danger" (click)="onEliminarPelicula(pelicula.id)">
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
