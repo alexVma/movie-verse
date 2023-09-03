@@ -37,3 +37,19 @@ body {
     margin-top: 10px;
     color: #007BFF;
 }
+.boton-elevado {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #4094ed; /* Color azul */
+    color: #fff; /* Color de texto blanco */
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.boton-elevado:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
