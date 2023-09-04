@@ -11,6 +11,7 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { FormularioMedioComponent } from './components/formulario-medio/formulario-medio.component';
 import { FormularioServicioComponent } from './components/formulario-servicio/formulario-servicio.component';
 import { FormularioADemandaComponent } from './components/formulario-a-demanda/formulario-a-demanda.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormularioADemandaComponent } from './components/formulario-a-demanda/f
     FormularioBasicoComponent,
     FormularioMedioComponent,
     FormularioServicioComponent,
-    FormularioADemandaComponent
+    FormularioADemandaComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
