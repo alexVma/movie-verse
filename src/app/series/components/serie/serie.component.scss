@@ -57,3 +57,35 @@
   object-fit: cover;
   z-index: 2; 
 }
+
+.episode-container {
+  display: flex;
+  flex-wrap: wrap; /* Para que las tarjetas se envuelvan en múltiples filas si es necesario */
+  justify-content: center; /* Centrar las tarjetas horizontalmente */
+}
+
+.episode-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px;
+  transition: box-shadow 0.3s ease-in-out;
+  width: calc(33.33% - 20px); /* Para que haya tres columnas, ajustar según sea necesario */
+  box-sizing: border-box; /* Incluir el padding en el ancho de la tarjeta */
+}
+
+.episode-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.episode-card h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.episode-card p {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+

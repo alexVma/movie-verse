@@ -4,6 +4,8 @@ import { environment } from 'src/environments/environment';
 import { SerieResponse } from 'src/app/core/models/serie/serie-response.model';
 import { Serie } from 'src/app/core/models/serie/serie.model';
 import { ImagenPeliculaResponse } from 'src/app/core/models/img/imagenes-pelicula.model';
+import { Episodios } from 'src/app/core/models/serie/episodios.model';
+
 
 
 
@@ -43,12 +45,21 @@ export class SeriesService {
     };
     return this.http.get<ImagenPeliculaResponse>(`${this.apiUrl}/tv/${id}/images`, httpOptions);
   }
-  /*obtenerSimilares(id: number){
+  obtenerSimilares(id: number){
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${environment.apiKey}`
       })
     };
-    return this.http.get<PeliculaResponse>(`${this.apiUrl}/movie/${id}/similar?language=en-US&page=1`, httpOptions);
-  }*/
+    return this.http.get<SerieResponse>(`${this.apiUrl}/tv/${id}/similar?language=en-US&page=1`, httpOptions);
+  }
+
+  obtenerEpisodios(id: number){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${environment.apiKey}`
+      })
+    };
+    return this.http.get<any>(`${this.apiUrl}/tv/${id}/episode_groups?language=en-US`, httpOptions);
+  }
 }

@@ -4,7 +4,7 @@ import { Serie } from 'src/app/core/models/serie/serie.model';
 import { SeriesService } from '../../services/series.service';
 import { catchError, of, tap } from 'rxjs';
 import { Backdrop } from 'src/app/core/models/img/imagenes-pelicula.model';
-
+import { Episodios } from 'src/app/core/models/serie/episodios.model';
 
 @Component({
   selector: 'app-serie',
@@ -15,6 +15,8 @@ import { Backdrop } from 'src/app/core/models/img/imagenes-pelicula.model';
 
 export class SerieComponent implements OnInit{
   serie: Serie | null;
+  serieSimilares: Serie[];
+  episodios:Episodios[];
   backdrops: Backdrop[];
   constructor(
     private route: ActivatedRoute,
@@ -22,7 +24,9 @@ export class SerieComponent implements OnInit{
     private serieService: SeriesService
     ) {
     this.serie = null;
+    this.serieSimilares= [];
     this.backdrops = [];
+    this.episodios = [];
    }
 
   ngOnInit(): void {
@@ -38,7 +42,8 @@ export class SerieComponent implements OnInit{
 
         this.obtenerDetalle(id);
         this.obtenerImagenes(id);
-      //  this.obtenerPeliculasSimilares(id);
+        this.obtenerSerieSimilares(id);
+        this.obtenerEpisodios(id);
         },
         error: error => {
           console.log(error);
@@ -60,6 +65,25 @@ export class SerieComponent implements OnInit{
   private obtenerImagenes(id: number) {
     this.serieService.obtenerImagenes(id).pipe(
       tap(res => this.backdrops = res.backdrops),
+      catchError(error => {
+        console.error('Error al obtener imágenes de la película:', error);
+        return of({ posters: [] });
+      })
+    ).subscribe();
+  }
+
+  private obtenerSerieSimilares(id: number) {
+    this.serieService.obtenerSimilares(id).subscribe({
+      next: res => {
+        this.serieSimilares = res.results
+      },
+      error: err => console.error(err)
+    })
+  }
+
+  private obtenerEpisodios(id: number) {
+    this.serieService.obtenerEpisodios(id).pipe(
+      tap(res => this.episodios = res.results),
       catchError(error => {
         console.error('Error al obtener imágenes de la película:', error);
         return of({ posters: [] });

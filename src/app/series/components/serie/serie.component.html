@@ -26,3 +26,28 @@
         </ng-template>
     </ngb-carousel>
 </div>
+<!--  Peliculas similares    Peliculas similares    Peliculas similares    Peliculas similares    Peliculas similares  -->
+<div *ngIf="serieSimilares.length > 0" >
+  <h4>Peliculas similares</h4>
+  <ngb-carousel #carouselImg [interval]="3000" class="my-carousel">
+    <ng-template ngbSlide *ngFor="let serie of serieSimilares; index as i">
+        <div class="carousel-caption">
+        </div>
+        <div class="title-container">
+          <h5>{{ serie.original_name }}</h5>
+        </div>
+        <div class="picsum-img-wrapper">
+            <img [src]="'https://image.tmdb.org/t/p/original/' + serie.backdrop_path"
+                [alt]="'Slide ' + (i + 1) + ' description'" />
+        </div>
+    </ng-template>
+</ngb-carousel>
+</div>
+
+<div class="episode-container">
+  <div class="episode-card" *ngFor="let episodio of episodios">
+    <h3>{{ episodio.name }}</h3>
+    <p>Cantidad de episodios: {{ episodio.episode_count }}</p>
+    <p>Descripción: {{ episodio.description }}</p>
+  </div>
+</div>
