@@ -27,5 +27,7 @@ export class SeriesComponent implements OnInit {
     );
 
   }
-
+  verDetalle(id: number){
+    this.router.navigate([`/serie/${id}`]).then()
+  }
 }

@@ -25,15 +25,15 @@ export class SeriesService {
     return this.http.get<SerieResponse>(`${this.apiUrl}/tv/popular?language=en-US`, httpOptions);
   }
 
-  /*obtenerDetalle(id: number) {
+ obtenerDetalle(id: number) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${environment.apiKey}`
       })
     };
-    return this.http.get<Pelicula>(`${this.apiUrl}/movie/${id}?language=en-US`, httpOptions);
+    return this.http.get<Serie>(`${this.apiUrl}/tv/${id}?language=en-US`, httpOptions);
 
-  }*/
+  }
 
  /* obtenerImagenes(id: number){
     const httpOptions = {

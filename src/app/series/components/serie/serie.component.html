@@ -1,1 +1,15 @@
-<p>serie works!</p>
+<div *ngIf="serie" class="serie-details">
+    <img [src]="'https://image.tmdb.org/t/p/original/' + serie.poster_path" alt="{{ serie.name }}" class="serie-poster">
+    <div class="serie-info">
+      <h2 class="serie-title">{{ serie.name }}</h2>
+      <p class="serie-name">{{ serie.name }}</p>
+      <p class="serie-overview">{{ serie.overview }}</p>
+  
+      <div class="serie-details-info">
+        <p><strong>Fecha de estreno:</strong> {{ serie.first_air_date }}</p>
+        <p><strong>País de origen:</strong> {{ serie.origin_country }}</p>
+        <p><strong>Rating:</strong> {{ serie.vote_average }}</p>
+      </div>
+    </div>
+  </div>
+  
