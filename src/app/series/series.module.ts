@@ -4,7 +4,7 @@ import { SeriesComponent } from './components/series/series.component';
 import { SerieComponent } from './components/serie/serie.component';
 import { SharedModule } from '../shared/shared.module';
 import { SeriesRoutingModule } from './series-routing.module';
-
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -15,6 +15,7 @@ import { SeriesRoutingModule } from './series-routing.module';
     CommonModule,
     SharedModule,
     SeriesRoutingModule,
+    NgbCarouselModule
   ]
 })
 export class SeriesModule { }

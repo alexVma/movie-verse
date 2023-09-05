@@ -12,4 +12,17 @@
       </div>
     </div>
   </div>
-  
+  <!-- imagenes  imagenes  imagenes  imagenes  imagenes  imagenes -->
+  <div>
+    <h4>Imagenes</h4>
+    <ngb-carousel #carouselImg [interval]="3000" class="my-carousel">
+        <ng-template ngbSlide *ngFor="let img of backdrops; index as i">
+            <div class="carousel-caption">
+            </div>
+            <div class="picsum-img-wrapper">
+                <img [src]="'https://image.tmdb.org/t/p/original/' + img.file_path"
+                    [alt]="'Slide ' + (i + 1) + ' description'" />
+            </div>
+        </ng-template>
+    </ngb-carousel>
+</div>

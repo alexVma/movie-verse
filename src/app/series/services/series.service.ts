@@ -35,16 +35,14 @@ export class SeriesService {
 
   }
 
- /* obtenerImagenes(id: number){
+  obtenerImagenes(id: number){
     const httpOptions = {
       headers: new HttpHeaders({
         'Authorization': `Bearer ${environment.apiKey}`
       })
     };
-    return this.http.get<ImagenPeliculaResponse>(`${this.apiUrl}/movie/${id}/images`, httpOptions);
-
-  
-  }*/
+    return this.http.get<ImagenPeliculaResponse>(`${this.apiUrl}/tv/${id}/images`, httpOptions);
+  }
   /*obtenerSimilares(id: number){
     const httpOptions = {
       headers: new HttpHeaders({
