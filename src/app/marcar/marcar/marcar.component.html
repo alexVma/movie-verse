@@ -1,0 +1,14 @@
+<div class="button-container">
+    <button class="btn entrada" (click)="confirmAction('ENTRADA')">Entrada</button>
+    <button class="btn salida" (click)="confirmAction('SALIDA')">Salida</button>
+  </div>
+  
+  <div *ngIf="resultado">
+    <h3>Resultado de la marcación</h3>
+    <p>Marcación Exitosa: {{ resultado.marcacionExitosa }}</p>
+    <p>Debería Reintentar: {{ resultado.deberiaReintentar }}</p>
+    <p>Error No Fatal: {{ resultado.errorNoFatal }}</p>
+    <p>Error Fatal: {{ resultado.errorFatal }}</p>
+    <p>Hora Marcación: {{ resultado.horaMarcacion }}</p>
+    <p>Motivo de Fallo: {{ resultado.motivoDeFallo }}</p>
+  </div>

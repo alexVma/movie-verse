@@ -9,6 +9,7 @@ import { PeliculaComponent  } from './movies/components/pelicula/pelicula.compon
 import { SeriesComponent  } from './series/components/series/series.component';
 import { SerieComponent  } from './series/components/serie/serie.component';
 import { HomeComponent } from './shared/components/home/home.component';
+import { MarcarComponent } from './marcar/marcar/marcar.component';
 
 const routes: Routes = [
  /* { path: 'peliculas', loadChildren: () => import('./movies/movies.module').then(m => m.MoviesModule) },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'formulario-medio', component: FormularioMedioComponent },
   { path: 'formulario-servicio', component: FormularioServicioComponent },
   { path: 'formulario-a-demanda', component: FormularioADemandaComponent },
+  { path: 'marcar', component: MarcarComponent },
 ];
 
 @NgModule({

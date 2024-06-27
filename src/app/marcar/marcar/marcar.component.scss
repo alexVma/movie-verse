@@ -1,0 +1,41 @@
+/* Asegúrate de que el contenedor ocupe toda la pantalla */
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .button-container {
+    height: 100vh; /* La altura del contenedor es igual a la altura de la ventana */
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    gap: 10px; /* Espacio entre los botones */
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Bordes redondeados */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .entrada {
+    background-color: #63e563; /* Verde claro */
+    color: white;
+  }
+  
+  .entrada:hover {
+    background-color: #76c776; /* Verde más oscuro al pasar el ratón */
+  }
+  
+  .salida {
+    background-color: #c65a58; /* Rojo claro */
+    color: white;
+  }
+  
+  .salida:hover {
+    background-color: #e59494; /* Rojo más oscuro al pasar el ratón */
+  }
+  

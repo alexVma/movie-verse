@@ -60,6 +60,8 @@
 
 .episode-container {
   display: flex;
+  gap: 20px;
+  padding: 20px;
   flex-wrap: wrap; /* Para que las tarjetas se envuelvan en múltiples filas si es necesario */
   justify-content: center; /* Centrar las tarjetas horizontalmente */
 }
@@ -69,10 +71,9 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding: 20px;
-  margin: 10px;
-  transition: box-shadow 0.3s ease-in-out;
-  width: calc(33.33% - 20px); /* Para que haya tres columnas, ajustar según sea necesario */
-  box-sizing: border-box; /* Incluir el padding en el ancho de la tarjeta */
+  max-width: calc(33% - 20px); 
+  text-align: center;
+
 }
 
 .episode-card:hover {
